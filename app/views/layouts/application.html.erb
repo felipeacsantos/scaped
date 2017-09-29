@@ -4,29 +4,24 @@
     <title>Scaped</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Bootstrap core CSS -->
-    <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all' %>
-
-    <!-- Custom styles for this template -->
-    <%= stylesheet_link_tag    'simple-sidebar.css', media: 'all' %>
+    
   </head>
 
   <body>
     <div id="wrapper" class="toggled">
 
-       <!-- Sidebar -->
+        <!-- Sidebar -->
        <div id="sidebar-wrapper">
            <ul class="sidebar-nav">
                <li class="sidebar-brand" style="text-indent: 0px;height: inherit;">
-                   <%= image_tag "Cool-Example-Company-Logo-33-For-Logo-Inspiration-with-Example-Company-Logo.jpg", :style => "width: 100%;text-align: center;" %>
+                   <%= link_to image_tag("scaped-logo.jpg", style: "width: 100%; text-align: center;"), root_path %>
                </li>
                <li>
                    <a href="#">Dashboard</a>
@@ -53,36 +48,14 @@
        </div>
        <!-- /#sidebar-wrapper -->
 
-       <!-- Page Content -->
-       <div id="page-content-wrapper py-0">
-           <div class="container-fluid px-4">
-               <div class="row">
-                 <div class="col-3 text-center py-3">
-                   Sobre
-                 </div>
-                 <div class="col-3 text-center py-3">
-                   Menu 2
-                 </div>
-                 <div class="col-3 text-center py-3">
-                   Menu 3
-                 </div>
-                 <div class="col-3 text-center py-3">
-                  Menu 4
-                 </div>
-                </div>
-               <!--a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a-->
-               <%= yield %>
-           </div>
-       </div>
-       <!-- /#page-content-wrapper -->
+    <!-- Page Content -->
+        <%= yield %>
+    <!-- /#page-content-wrapper -->
 
    </div>
    <!-- /#wrapper -->
 
-   <!-- Bootstrap core JavaScript -->
-   <%= javascript_include_tag 'jquery.min.js' %>
-   <%= javascript_include_tag 'popper/popper.min.js' %>
-   <%= javascript_include_tag 'bootstrap.min.js' %>
+   
 
    <!-- Menu Toggle Script -->
    <script>
