@@ -5,5 +5,13 @@
   <%= @objeto.name %>
 </p>
 
+<ul>
+  <% for parametro in @objeto.parametros %>
+  <li>
+    <b><%=h parametro.name %>:</b>&nbsp;<%=h parametro.value %>
+  </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_objeto_path(@objeto) %> |
 <%= link_to 'Back', objetos_path %>

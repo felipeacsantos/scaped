@@ -27,7 +27,7 @@ class ObjetosController < ApplicationController
   def create
     @objeto = Objeto.new(objeto_params)
 
-    print @objeto.parametros
+    #print @objeto.parametros
     respond_to do |format|
       if @objeto.save
         format.html { redirect_to @objeto, notice: 'Objeto was successfully created.' }
