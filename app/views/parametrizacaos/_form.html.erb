@@ -1,0 +1,27 @@
+<%= form_for(parametrizacao) do |f| %>
+  <% if parametrizacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parametrizacao.errors.count, "error") %> prohibited this parametrizacao from being saved:</h2>
+
+      <ul>
+      <% parametrizacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :objeto_id %>
+    <%= f.text_field :objeto_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parametro_id %>
+    <%= f.text_field :parametro_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

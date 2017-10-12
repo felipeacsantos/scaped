@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929234248) do
+ActiveRecord::Schema.define(version: 20171012170936) do
+
+  create_table "objetos", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parametrizacaos", force: :cascade do |t|
+    t.integer  "objeto_id"
+    t.integer  "parametro_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["objeto_id"], name: "index_parametrizacaos_on_objeto_id"
+    t.index ["parametro_id"], name: "index_parametrizacaos_on_parametro_id"
+  end
+
+  create_table "parametros", force: :cascade do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "primeironome"

@@ -1,0 +1,31 @@
+<%= form_for(objeto) do |f| %>
+  <% if objeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(objeto.errors.count, "error") %> prohibited this objeto from being saved:</h2>
+
+      <ul>
+      <% objeto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <fieldset id="objeto-parametros">
+    <ol>
+      <%= f.fields_for :parametrizacaos do |parametrizacao| %>
+        <%= render 'parametrizacao_fields', f: parametrizacao %>
+      <% end %>
+    </ol>
+    <%= link_to_add_association 'add parametro', f, :parametrizacaos, 'data-association-insertion-node' => "#objeto-parametros ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|parametrizacao| parametrizacao.build_parametro; parametrizacao } %>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

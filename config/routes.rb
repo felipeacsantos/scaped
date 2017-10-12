@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :parametrizacaos
+  resources :parametros
+  resources :objetos
   resources :usuarios
   get 'sessions/index'
 

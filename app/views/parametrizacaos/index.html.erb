@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parametrizacaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Objeto</th>
+      <th>Parametro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parametrizacaos.each do |parametrizacao| %>
+      <tr>
+        <td><%= parametrizacao.objeto %></td>
+        <td><%= parametrizacao.parametro %></td>
+        <td><%= link_to 'Show', parametrizacao %></td>
+        <td><%= link_to 'Edit', edit_parametrizacao_path(parametrizacao) %></td>
+        <td><%= link_to 'Destroy', parametrizacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parametrizacao', new_parametrizacao_path %>

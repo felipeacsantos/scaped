@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Objetos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @objetos.each do |objeto| %>
+      <tr>
+        <td><%= objeto.name %></td>
+        <td><%= link_to 'Show', objeto %></td>
+        <td><%= link_to 'Edit', edit_objeto_path(objeto) %></td>
+        <td><%= link_to 'Destroy', objeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Objeto', new_objeto_path %>
