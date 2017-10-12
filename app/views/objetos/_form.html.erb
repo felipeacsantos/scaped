@@ -18,11 +18,12 @@
 
   <fieldset id="objeto-parametros">
     <ol>
-      <%= f.fields_for :parametrizacaos do |parametrizacao| %>
-        <%= render 'parametrizacao_fields', f: parametrizacao %>
+      <%= f.fields_for :parametros do |builder| %>
+        <%= render 'parametrizacao_fields', :f => builder %>
       <% end %>
     </ol>
-    <%= link_to_add_association 'add parametro', f, :parametrizacaos, 'data-association-insertion-node' => "#objeto-parametros ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|parametrizacao| parametrizacao.build_parametro; parametrizacao } %>
+    <%= #link_to_add_association 'add parametro', f, :parametrizacaos, 'data-association-insertion-node' => "#objeto-parametros ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|parametrizacao| parametrizacao.build_parametro; parametrizacao } 
+    %>
   </fieldset>
 
   <div class="actions">

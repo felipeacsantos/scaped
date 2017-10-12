@@ -15,6 +15,7 @@ class ObjetosController < ApplicationController
   # GET /objetos/new
   def new
     @objeto = Objeto.new
+    3.times {@objeto.parametros.build}
   end
 
   # GET /objetos/1/edit
@@ -26,6 +27,7 @@ class ObjetosController < ApplicationController
   def create
     @objeto = Objeto.new(objeto_params)
 
+    print @objeto.parametros
     respond_to do |format|
       if @objeto.save
         format.html { redirect_to @objeto, notice: 'Objeto was successfully created.' }
@@ -69,6 +71,6 @@ class ObjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def objeto_params
-      params.require(:objeto).permit(:name, :parametrizacaos_attributes => [:objeto_id, :parametro_id, :parametro_attributes => [:id, :name, :value]])
+      params.require(:objeto).permit(:name, :parametrizacaos_attributes => [:objeto_id, :parametro_id, :_destroy], :parametros_attributes => [:id, :name, :value, :_destroy])
     end
 end
