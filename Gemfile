@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cocoon'
 
+gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

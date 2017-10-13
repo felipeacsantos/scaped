@@ -15,7 +15,7 @@ class ObjetosController < ApplicationController
   # GET /objetos/new
   def new
     @objeto = Objeto.new
-    3.times {@objeto.parametros.build}
+    #3.times {@objeto.parametros.build}
   end
 
   # GET /objetos/1/edit
