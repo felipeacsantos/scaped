@@ -31,8 +31,9 @@
 //
 
 function remove_fields(link) {
-  $(link).prev("input[type=hidden]").val("1");
-  $(link).closest(".fields").hide();
+  console.log("#objeto_parametros_attributes_"+link+"__destroy");
+  $("#objeto_parametros_attributes_"+link+"__destroy").val("1");
+  $("#objeto_parametros_attributes_"+link+"__destroy").closest(".nested-fields").hide();
 }
 
 function add_fields(link, association, content) {
