@@ -1,0 +1,27 @@
+<%= form_for(objetovalparametro) do |f| %>
+  <% if objetovalparametro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(objetovalparametro.errors.count, "error") %> prohibited this objetovalparametro from being saved:</h2>
+
+      <ul>
+      <% objetovalparametro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :objeto_id %>
+    <%= f.text_field :objeto_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valparametro_id %>
+    <%= f.text_field :valparametro_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -41,3 +41,29 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g")
   $("#addButton").parent().append(content.replace(regexp, new_id));
 }
+
+
+function myFunction(event){
+    console.log("haha")
+    var backup = $('#field_backup_'+event.target.id.split('_')[3]);
+    //objeto_objetovalparametros_attributes_1509076931649_valparametros_parametro_id
+    var path_for_parametro_field = "#objeto_objetovalparametros_attributes_"+event.target.id.split('_')[3]+"_valparametros_parametro_id";
+    var path_for_parametro_field_selected = "#objeto_objetovalparametros_attributes_"+event.target.id.split('_')[3]+"_valparametros_parametro_id :selected";
+    //objeto_objetovalparametros_attributes_1509076931649_valparametro_id
+    var path_for_valparametro_field = "#objeto_objetovalparametros_attributes_"+event.target.id.split('_')[3]+"_valparametro_id";
+    if(!backup.val()){
+      var valparametros = $(path_for_valparametro_field).html();
+      backup.val(valparametros);
+    }else{
+      var valparametros = backup.val();
+    }
+
+    var parametro = $(path_for_parametro_field_selected).text();
+    var options = $(valparametros).filter("optgroup[label='"+parametro+"']").html();
+    if(options){
+      $(path_for_valparametro_field).show();
+      $(path_for_valparametro_field).html(options);
+    }else{
+      $(path_for_valparametro_field).hide();
+    }
+}

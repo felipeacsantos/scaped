@@ -1,3 +1,15 @@
+<!--<script type="text/javascript">
+$("#objeto_parametro_ids").change(function(){
+  $.ajax({
+    url: your_url,
+    //orther options ...
+    success: function(data){
+        $("#floors_select").html(data);
+    }
+  });
+
+});
+</script-->
 <%= form_for(objeto) do |f| %>
   <% if objeto.errors.any? %>
     <div id="error_explanation">
@@ -17,11 +29,12 @@
       <%= f.text_field :name %>
     </p>
 
-    <%= f.fields_for :parametros do |builder| %>
-      <%= render 'parametro_fields', :f => builder %>
+    <%#= collection_select(nil, :valparametro_ids, @valparametro, :id, :name, {:prompt   => "Select a Parameter"}, {:id => "floors_select"}) %>
+    <%= f.fields_for :objetovalparametros do |builder| %>
+      <%= render 'objetovalparametro_fields', :f => builder %>
     <% end %>
 
-    <p id="addButton"><%= link_to_add_fields "Add parameters", f, :parametros %></p>
+    <p id="addButton"><%= link_to_add_fields "Add parameters", f, :objetovalparametros %></p>
   </div>
 
   <div class="actions">

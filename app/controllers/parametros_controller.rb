@@ -69,6 +69,6 @@ class ParametrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parametro_params
-      params.require(:parametro).permit(:name, :value)
+      params.require(:parametro).permit(:name)
     end
 end

@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012170936) do
+ActiveRecord::Schema.define(version: 20171026225243) do
 
   create_table "objetos", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "objetovalparametros", force: :cascade do |t|
+    t.integer  "objeto_id"
+    t.integer  "valparametro_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["objeto_id"], name: "index_objetovalparametros_on_objeto_id"
+    t.index ["valparametro_id"], name: "index_objetovalparametros_on_valparametro_id"
   end
 
   create_table "parametrizacaos", force: :cascade do |t|
@@ -29,7 +38,6 @@ ActiveRecord::Schema.define(version: 20171012170936) do
 
   create_table "parametros", force: :cascade do |t|
     t.string   "name"
-    t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +50,14 @@ ActiveRecord::Schema.define(version: 20171012170936) do
     t.date     "datanasc"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "valparametros", force: :cascade do |t|
+    t.string   "valor"
+    t.integer  "parametro_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["parametro_id"], name: "index_valparametros_on_parametro_id"
   end
 
 end

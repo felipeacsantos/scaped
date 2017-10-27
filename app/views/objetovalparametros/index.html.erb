@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Objetovalparametros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Objeto</th>
+      <th>Valparametro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @objetovalparametros.each do |objetovalparametro| %>
+      <tr>
+        <td><%= objetovalparametro.objeto_id %></td>
+        <td><%= objetovalparametro.valparametro_id %></td>
+        <td><%= link_to 'Show', objetovalparametro %></td>
+        <td><%= link_to 'Edit', edit_objetovalparametro_path(objetovalparametro) %></td>
+        <td><%= link_to 'Destroy', objetovalparametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Objetovalparametro', new_objetovalparametro_path %>

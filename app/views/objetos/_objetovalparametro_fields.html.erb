@@ -1,0 +1,11 @@
+<li class="control-group nested-fields">
+  <div class="controls">
+    <%= f.fields_for :valparametros do |builder| %>
+      <%= builder.collection_select :parametro_id, Parametro.order(:name), :id, :name, {include_blank: true}, {class: 'parametro', onchange: 'myFunction(event)'} %>
+    <% end %>
+    <%= f.grouped_collection_select :valparametro_id, Parametro.order(:name), :valparametros, :name, :id, :valor, include_blank: true %>
+    <%= hidden_field_tag :field_name, '', :id => 'field_backup_' + f.index.to_s %>
+
+      <%= link_to_remove_fields "remove", f, f.index %>
+  </div>
+</li>

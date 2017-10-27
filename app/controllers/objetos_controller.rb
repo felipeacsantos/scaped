@@ -26,6 +26,7 @@ class ObjetosController < ApplicationController
   # POST /objetos.json
   def create
     @objeto = Objeto.new(objeto_params)
+    #@objeto.objetovalparametros.valparametros = nil
 
     #print @objeto.parametros
     respond_to do |format|
@@ -53,6 +54,11 @@ class ObjetosController < ApplicationController
     end
   end
 
+  #def update_valparametros
+  #  parametro = @objeto.find(params[:parametro_id])
+  #  @valparametro = parametro.valparametro_ids.map{|a| [a.name, a.id]}.insert(0, "Select a Floor")
+  #end
+
   # DELETE /objetos/1
   # DELETE /objetos/1.json
   def destroy
@@ -71,6 +77,6 @@ class ObjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def objeto_params
-      params.require(:objeto).permit(:name, :parametrizacaos_attributes => [:objeto_id, :parametro_id, :_destroy], :parametros_attributes => [:id, :name, :value, :_destroy])
+      params.require(:objeto).permit(:name, :valparametros => [:id, :valor, :parametro_id], :objetovalparametros_attributes => [:objeto_id, :valparametro_id, :_destroy], :parametrizacaos_attributes => [:objeto_id, :parametro_id, :_destroy], :parametros_attributes => [:id, :name, :value, :_destroy])
     end
 end

@@ -1,0 +1,27 @@
+<%= form_for(valparametro) do |f| %>
+  <% if valparametro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(valparametro.errors.count, "error") %> prohibited this valparametro from being saved:</h2>
+
+      <ul>
+      <% valparametro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parametro_id %>
+    <%= f.collection_select :parametro_id, Parametro.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
