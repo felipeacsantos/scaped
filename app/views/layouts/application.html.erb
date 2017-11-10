@@ -4,8 +4,8 @@
         <title>Scaped</title>
         <%= csrf_meta_tags %>
 
-        <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,8 +17,8 @@
 
         <!-- Custom styles for this template -->
         <%= stylesheet_link_tag 'simple-sidebar.css', media: 'all' %>
-        <%= stylesheet_link_tag 'scss/freelancer.scss', media: 'all' %>
-        <link href="assets/stylesheets/freelancer.min.css" rel="stylesheet">
+        <%= stylesheet_link_tag 'freelancer.min.css' %>
+        <!-- <link href="assets/stylesheets/freelancer.min.css" rel="stylesheet"> -->
 
         <%= javascript_include_tag 'jquery.min.js' %>
         <%= javascript_include_tag 'popper/popper.min.js' %>
