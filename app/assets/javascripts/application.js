@@ -32,8 +32,8 @@
 
 function remove_fields(link) {
   console.log("#objeto_parametros_attributes_"+link+"__destroy");
-  $("#objeto_parametros_attributes_"+link+"__destroy").val("1");
-  $("#objeto_parametros_attributes_"+link+"__destroy").closest(".nested-fields").hide();
+  $("#objeto_objetovalparametros_attributes_"+link+"__destroy").val("1");
+  $("#objeto_objetovalparametros_attributes_"+link+"__destroy").closest(".nested-fields").hide();
 }
 
 function add_fields(link, association, content) {
