@@ -31,7 +31,7 @@ $("#objeto_parametro_ids").change(function(){
 
     <div class="field">
       Tipo
-      <select name="tipo" onchange="searchParameters(event)">
+      <select name="tipo" onchange="getParamByObjectType(event)">
         <option value="">Please select</option>
         <option value="1">SQL</option>
         <option value="2">Arquivo</option>
@@ -44,7 +44,7 @@ $("#objeto_parametro_ids").change(function(){
       <%= render 'objetovalparametro_fields', :f => builder %>
     <% end %>
 
-    <p id="addButton"><%= link_to_add_fields "Add parameters", f, :objetovalparametros %></p>
+    <p id="addButton"><%#= link_to_add_fields "Add parameters", f, :objetovalparametros %></p>
   </div>
 
   <div class="actions">
