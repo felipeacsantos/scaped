@@ -1,0 +1,2 @@
+class Tipoobjeto < ApplicationRecord
+end

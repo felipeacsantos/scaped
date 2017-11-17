@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117173211) do
+ActiveRecord::Schema.define(version: 20171117183211) do
 
   create_table "criterios", force: :cascade do |t|
     t.integer  "operador"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20171117173211) do
 
   create_table "parametros", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "tipoobjeto"
+    t.integer  "tipoobjeto_id"
+    t.index ["tipoobjeto_id"], name: "index_parametros_on_tipoobjeto_id"
+  end
+
+  create_table "tipoobjetos", force: :cascade do |t|
+    t.string   "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

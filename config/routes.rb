@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :tipoobjetos
   resources :criterios
   resources :objetovalparametros
   resources :valparametros
   resources :parametrizacaos
   resources :parametros
+    #get '', :controller => :ParametrosController, :action => 'getByTipoObjeto'
+    get 'parametros/to/:id', action: :getByTipoObjeto, controller: 'parametros'
   resources :objetos
   resources :usuarios
   get 'sessions/index'

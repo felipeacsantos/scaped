@@ -12,6 +12,12 @@ class ParametrosController < ApplicationController
   def show
   end
 
+  # GET /parametros/to/1
+  # GET /parametros/to/1.json
+  def getByTipoObjeto
+    @parametros = Parametro.where(tipoobjeto: params[:id])
+  end
+
   # GET /parametros/new
   def new
     @parametro = Parametro.new
@@ -69,6 +75,6 @@ class ParametrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parametro_params
-      params.require(:parametro).permit(:name)
+      params.require(:parametro).permit(:name, :tipoobjeto)
     end
 end

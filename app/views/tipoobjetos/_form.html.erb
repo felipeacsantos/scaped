@@ -1,0 +1,22 @@
+<%= form_for(tipoobjeto) do |f| %>
+  <% if tipoobjeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipoobjeto.errors.count, "error") %> prohibited this tipoobjeto from being saved:</h2>
+
+      <ul>
+      <% tipoobjeto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

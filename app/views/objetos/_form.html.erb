@@ -29,6 +29,16 @@ $("#objeto_parametro_ids").change(function(){
       <%= f.text_field :name %>
     </p>
 
+    <div class="field">
+      Tipo
+      <select name="tipo" onchange="searchParameters(event)">
+        <option value="">Please select</option>
+        <option value="1">SQL</option>
+        <option value="2">Arquivo</option>
+        <option value="3">Registro</option>
+      </select>
+    </div>
+
     <%#= collection_select(nil, :valparametro_ids, @valparametro, :id, :name, {:prompt   => "Select a Parameter"}, {:id => "floors_select"}) %>
     <%= f.fields_for :objetovalparametros do |builder| %>
       <%= render 'objetovalparametro_fields', :f => builder %>
