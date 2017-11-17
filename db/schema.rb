@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026225243) do
+ActiveRecord::Schema.define(version: 20171117173211) do
+
+  create_table "criterios", force: :cascade do |t|
+    t.integer  "operador"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "objetos", force: :cascade do |t|
     t.string   "name"

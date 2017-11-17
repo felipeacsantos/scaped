@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :criterios
   resources :objetovalparametros
   resources :valparametros
   resources :parametrizacaos
