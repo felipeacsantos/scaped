@@ -74,10 +74,11 @@ function getParamByObjectType(event){
     url: "http://localhost:3000/parametros/to/"+event.target.selectedIndex+".json",
     success: function(data){
       for(i = 0; i < data.length; i++){
-        fields_string = addSpecificFields(data[i]);
-        add_fields(event.target, "objetovalparametros", fields_string)
-        $(event.target).hide();
+        fields_string += addSpecificFields(data[i]);
+
+        //$(event.target).hide();
       }
+      add_fields(event.target, "objetovalparametros", fields_string)
 
     }
   });
@@ -86,7 +87,14 @@ function getParamByObjectType(event){
 function addSpecificFields(data){
     var fields = "<div class='control-group nested-fields'><div class='controls'><select class='parametro' onchange='myFunction(event)' name='objeto[objetovalparametros_attributes][new_objetovalparametros][valparametros][parametro_id]' id='objeto_objetovalparametros_attributes_new_objetovalparametros_valparametros_parametro_id' disabled='disabled'>";
           fields +=  "<option value='"+data.id+"' selected='selected'>"+data.name+"<\/option>";
-        fields += "<\/select><\/div><\/div>";
+        fields += "<\/select>"
+
+        fields += "<select class='parametro' onchange='myFunction(event)' name='objeto[objetovalparametros_attributes][new_objetovalparametros][valparametros][id]' id='objeto_objetovalparametros_attributes_new_objetovalparametros_valparametros_id'>";
+        for(i2 = 0; i2 < data.valparametros.length; i2++){
+          fields += "<option value='"+data.valparametros[i2].id+"'>"+data.valparametros[i2].valor+"<\/option>";
+        }
+
+        fields +="<\/select><a target='_blank' href='/valparametros/new'>+</a><\/div><\/div>";
 
     return fields;
 }
