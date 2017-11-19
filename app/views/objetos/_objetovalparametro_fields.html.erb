@@ -1,7 +1,7 @@
 <div class="control-group nested-fields">
   <div class="controls">
     <%= f.fields_for :valparametros do |builder| %>
-      <%= builder.collection_select :parametro_id, Parametro.order(:name), :id, :name, {include_blank: true, selected: Valparametro.find(f.object.valparametro_id).parametro_id}, {class: 'parametro', onchange: 'myFunction(event)'} %>
+      <%= builder.collection_select :parametro_id, Parametro.order(:name), :id, :name, {include_blank: true, selected: Valparametro.find(f.object.valparametro_id).parametro_id}, {class: 'parametro', onchange: 'myFunction(event)', disabled: 'disabled'} %>
 
     <% end %>
     <%= f.collection_select :valparametro_id, Valparametro.order(:valor).where(parametro_id: Valparametro.find(f.object.valparametro_id).parametro_id), :id, :valor, {include_blank: true} %>
