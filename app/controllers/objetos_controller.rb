@@ -77,6 +77,6 @@ class ObjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def objeto_params
-      params.require(:objeto).permit(:name, :valparametros => [:id, :valor, :parametro_id], :objetovalparametros_attributes => [:parametro_id, :objeto_id, :valparametro_id, :_destroy], :parametrizacaos_attributes => [:objeto_id, :parametro_id, :_destroy], :parametros_attributes => [:id, :name, :value, :_destroy])
+      params.require(:objeto).permit(:name, :valparametros => [:id, :valor, :parametro_id], :objetovalparametros_attributes => [:id, :parametro_id, :objeto_id, :valparametro_id, :_destroy], :parametrizacaos_attributes => [:objeto_id, :parametro_id, :_destroy], :parametros_attributes => [:id, :name, :value, :_destroy])
     end
 end

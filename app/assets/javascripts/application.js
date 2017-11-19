@@ -36,6 +36,11 @@ function remove_fields(link) {
   $("#objeto_objetovalparametros_attributes_"+link+"__destroy").closest(".nested-fields").hide();
 }
 
+function remove_all_fields() {
+  $('.destroy').val("1")
+  $('.destroy').closest(".nested-fields").hide();
+}
+
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
@@ -75,6 +80,7 @@ function getParamByObjectType(event){
     success: function(data){
       for(i = 0; i < data.length; i++){
         fields_string = addSpecificFields(data[i]);
+        remove_all_fields();
         add_fields(event.target, "objetovalparametros", fields_string)
         //$(event.target).hide();
       }

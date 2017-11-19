@@ -1,6 +1,6 @@
 module ApplicationHelper
   def link_to_remove_fields(name, f, id)
-    f.hidden_field(:_destroy) + link_to_if(true, name, "javascript:remove_fields(#{id})")
+    f.hidden_field(:_destroy, :class => "destroy") + link_to_if(true, name, "javascript:remove_fields(#{id})")
   end
 
   def link_to_add_fields(name, f, association)
