@@ -31,13 +31,15 @@ $("#objeto_parametro_ids").change(function(){
 
     <div class="field">
       Tipo
-      <select name="tipo" onchange="getParamByObjectType(event)">
+      <% @sel = f.object.valparametros.first ? Parametro.find(f.object.valparametros.first.parametro_id).tipoobjeto : 0 %>
+      <%= f.collection_select :tipoobjeto, Tipoobjeto.order(:id), :id, :descricao, {include_blank: true, selected: @sel}, {class: 'parametro', onchange: 'getParamByObjectType(event)'} %>
+      <!--select name="tipo" onchange="getParamByObjectType(event)">
         <option value="">Please select</option>
         <option value="1">SQL</option>
         <option value="2">Arquivo</option>
         <option value="3">Registro</option>
       </select>
-    </div>
+    </div-->
 
     <%#= collection_select(nil, :valparametro_ids, @valparametro, :id, :name, {:prompt   => "Select a Parameter"}, {:id => "floors_select"}) %>
     <%= f.fields_for :objetovalparametros do |builder| %>

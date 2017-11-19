@@ -42,7 +42,7 @@ function remove_all_fields() {
 }
 
 function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
+  var new_id = new Date().getTime() - (Math.round(Math.random()*11));
   var regexp = new RegExp("new_" + association, "g")
   $("#addButton").parent().append(content.replace(regexp, new_id));
 }
@@ -78,9 +78,9 @@ function getParamByObjectType(event){
   $.ajax({
     url: "http://localhost:3000/parametros/to/"+event.target.selectedIndex+".json",
     success: function(data){
+      remove_all_fields();
       for(i = 0; i < data.length; i++){
         fields_string = addSpecificFields(data[i]);
-        remove_all_fields();
         add_fields(event.target, "objetovalparametros", fields_string)
         //$(event.target).hide();
       }
@@ -100,7 +100,11 @@ function addSpecificFields(data){
           fields += "<option value='"+data.valparametros[i2].id+"'>"+data.valparametros[i2].valor+"<\/option>";
         }
 
-        fields +="<\/select><a target='_blank' href='/valparametros/new'>+</a><\/div><\/div>";
+        fields +="<\/select>";
+
+        fields += "<input class='destroy' type='hidden' value='false' name='objeto[objetovalparametros_attributes][new_objetovalparametros][_destroy]' id='objeto_objetovalparametros_attributes_new_objetovalparametros__destroy' style='display: inline-block;'>";
+
+        fields += "<a target='_blank' href='/valparametros/new'>+</a><\/div><\/div>";
 
     return fields;
 }
