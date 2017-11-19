@@ -40,7 +40,7 @@ $("#objeto_parametro_ids").change(function(){
     </div>
 
     <%#= collection_select(nil, :valparametro_ids, @valparametro, :id, :name, {:prompt   => "Select a Parameter"}, {:id => "floors_select"}) %>
-    <%= f.fields_for :valparametros do |builder| %>
+    <%= f.fields_for :objetovalparametros do |builder| %>
       <%= render 'objetovalparametro_fields', :f => builder %>
     <% end %>
 
