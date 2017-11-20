@@ -1,0 +1,14 @@
+<div class="control-group nested-fields">
+  <div class="controls">
+    <%= f.fields_for :esparams do |builder| %>
+      <%= builder.collection_select :esparam_id, Esparam.order(:name), :id, :name, {include_blank: true, selected: Esvalparam.find(f.object.esvalparam_id).esparam_id}, {class: 'esparam', onchange: 'myFunction(event)', disabled: 'disabled'} %>
+
+    <% end %>
+    <%= f.collection_select :esvalparam_id, Esvalparam.order(:valor).where(esparam_id: Esvalparam.find(f.object.esvalparam_id).esparam_id), :id, :valor, {include_blank: true} %>
+
+    <%= hidden_field_tag :field_name, '', :id => 'field_backup_' + f.index.to_s %>
+
+      <%= link_to_remove_fields "remove", f, f.index %>
+      <%= link_to '+', new_esvalparam_path, target: :_blank %>
+  </div>
+</div>

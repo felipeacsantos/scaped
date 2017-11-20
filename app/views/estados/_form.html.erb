@@ -21,6 +21,15 @@
     <%= f.number_field :versao %>
   </div>
 
+  <div class="field">
+    Tipo
+    <% @sel = f.object.esvalparams.first ? Esparam.find(f.object.esvalparams.first.esparam_id).tipoestado : 0 %>
+    <%= f.collection_select :tipoestado, Tipoestado.order(:id), :id, :descricao, {include_blank: true, selected: @sel}, {class: 'esparam', onchange: 'getParamByStateType(event)'} %>
+
+  <%= f.fields_for :estadoesvalparams do |builder| %>
+    <%= render 'estadoesvalparam_fields', :f => builder %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -90,6 +90,23 @@ function getParamByObjectType(event){
   });
 }
 
+function getParamByStateType(event){
+  var fields_string = "";
+  $.ajax({
+    url: "http://localhost:3000/esparams/to/"+event.target.selectedIndex+".json",
+    success: function(data){
+      remove_all_fields();
+      for(i = 0; i < data.length; i++){
+        fields_string = addSpecificFieldsState(data[i]);
+        add_fields(event.target, "estadoesvalparams", fields_string, i)
+        //$(event.target).hide();
+      }
+
+
+    }
+  });
+}
+
 function addSpecificFields(data){
       var fields = "<div class='control-group nested-fields'><div class='controls'><select class='parametro' disabled='disabled' onchange='myFunction(event)' name='objeto[objetovalparametros_attributes][new_objetovalparametros][valparametros][parametro_id]' id='objeto_objetovalparametros_attributes_new_objetovalparametros_valparametros_parametro_id'>";
           fields +=  "<option value='"+data.id+"' selected='selected'>"+data.name+"<\/option>";

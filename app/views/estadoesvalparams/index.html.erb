@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Estadoesvalparams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Esvalparam</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estadoesvalparams.each do |estadoesvalparam| %>
+      <tr>
+        <td><%= estadoesvalparam.estado %></td>
+        <td><%= estadoesvalparam.esvalparam %></td>
+        <td><%= link_to 'Show', estadoesvalparam %></td>
+        <td><%= link_to 'Edit', edit_estadoesvalparam_path(estadoesvalparam) %></td>
+        <td><%= link_to 'Destroy', estadoesvalparam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estadoesvalparam', new_estadoesvalparam_path %>

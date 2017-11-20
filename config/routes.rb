@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :estadoesvalparams
   resources :esvalparams
   resources :esparams
+    get 'esparams/to/:id', action: :getByTipoEstado, controller: 'esparams'
   resources :valparametroes, as: :valparametroe
   resources :parametroes, as: :parametroe
   resources :tipoestados

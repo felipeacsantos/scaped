@@ -12,6 +12,12 @@ class EsparamsController < ApplicationController
   def show
   end
 
+  # GET /esparams/to/1
+  # GET /esparams/to/1.json
+  def getByTipoEstado
+    @esparams = Esparam.where(tipoestado: params[:id])
+  end
+
   # GET /esparams/new
   def new
     @esparam = Esparam.new
