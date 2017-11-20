@@ -24,9 +24,9 @@
         <td><%= testis.checkexists %></td>
         <td><%= testis.objeto %></td>
         <td><%= testis.criterio %></td>
-        <td><%= link_to 'Show', testis %></td>
-        <td><%= link_to 'Edit', edit_testis_path(testis) %></td>
-        <td><%= link_to 'Destroy', testis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', testis %></td>
+        <td><%= link_to 'Editar', edit_testis_path(testis) %></td>
+        <td><%= link_to 'Apagar', testis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Testis', new_testis_path %>
+<%= link_to 'Novo Teste', new_testis_path %>
