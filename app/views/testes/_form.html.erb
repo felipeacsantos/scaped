@@ -1,0 +1,47 @@
+<%= form_for(testis) do |f| %>
+  <% if testis.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(testis.errors.count, "error") %> prohibited this testis from being saved:</h2>
+
+      <ul>
+      <% testis.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :versao %>
+    <%= f.number_field :versao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :texto %>
+    <%= f.text_field :texto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :checkvalor %>
+    <%= f.select :checkvalor, Teste.checkvalors.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :checkexists %>
+    <%= f.select :checkexists, Teste.checkexists.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objeto_id %>
+    <%= f.collection_select :objeto_id, Objeto.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :criterio_id %>
+    <%= f.collection_select :criterio_id, Criterio.all, :id, :id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

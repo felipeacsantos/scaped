@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Versao:</strong>
+  <%= @testis.versao %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @testis.texto %>
+</p>
+
+<p>
+  <strong>Checkvalor:</strong>
+  <%= @testis.checkvalor %>
+</p>
+
+<p>
+  <strong>Checkexists:</strong>
+  <%= @testis.checkexists %>
+</p>
+
+<p>
+  <strong>Objeto:</strong>
+  <%= @testis.objeto %>
+</p>
+
+<p>
+  <strong>Criterio:</strong>
+  <%= @testis.criterio %>
+</p>
+
+<%= link_to 'Edit', edit_testis_path(@testis) %> |
+<%= link_to 'Back', testes_path %>

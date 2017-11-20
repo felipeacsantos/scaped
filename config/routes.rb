@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testes
   resources :tipoobjetos
   resources :criterios
   resources :objetovalparametros

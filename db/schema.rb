@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117183211) do
+ActiveRecord::Schema.define(version: 20171120000114) do
 
   create_table "criterios", force: :cascade do |t|
     t.integer  "operador"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20171117183211) do
     t.integer  "tipoobjeto"
     t.integer  "tipoobjeto_id"
     t.index ["tipoobjeto_id"], name: "index_parametros_on_tipoobjeto_id"
+  end
+
+  create_table "testes", force: :cascade do |t|
+    t.integer  "versao"
+    t.string   "texto"
+    t.integer  "checkvalor"
+    t.integer  "checkexists"
+    t.integer  "objeto_id"
+    t.integer  "criterio_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["criterio_id"], name: "index_testes_on_criterio_id"
+    t.index ["objeto_id"], name: "index_testes_on_objeto_id"
   end
 
   create_table "tipoobjetos", force: :cascade do |t|
