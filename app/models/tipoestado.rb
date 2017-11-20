@@ -1,0 +1,2 @@
+class Tipoestado < ApplicationRecord
+end

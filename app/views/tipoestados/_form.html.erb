@@ -1,0 +1,22 @@
+<%= form_for(tipoestado) do |f| %>
+  <% if tipoestado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipoestado.errors.count, "error") %> prohibited this tipoestado from being saved:</h2>
+
+      <ul>
+      <% tipoestado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

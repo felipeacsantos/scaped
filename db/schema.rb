@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120004907) do
+ActiveRecord::Schema.define(version: 20171120051437) do
 
   create_table "criterioestados", force: :cascade do |t|
     t.integer  "criterio_id"
@@ -27,11 +27,27 @@ ActiveRecord::Schema.define(version: 20171120004907) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "esparams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "tipoestado_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["tipoestado_id"], name: "index_esparams_on_tipoestado_id"
+  end
+
   create_table "estados", force: :cascade do |t|
     t.string   "name"
     t.integer  "versao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "esvalparams", force: :cascade do |t|
+    t.string   "valor"
+    t.integer  "esparam_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["esparam_id"], name: "index_esvalparams_on_esparam_id"
   end
 
   create_table "objetos", force: :cascade do |t|
@@ -58,6 +74,14 @@ ActiveRecord::Schema.define(version: 20171120004907) do
     t.index ["parametro_id"], name: "index_parametrizacaos_on_parametro_id"
   end
 
+  create_table "parametroes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "tipoestado_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["tipoestado_id"], name: "index_parametroes_on_tipoestado_id"
+  end
+
   create_table "parametros", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",    null: false
@@ -80,6 +104,12 @@ ActiveRecord::Schema.define(version: 20171120004907) do
     t.index ["objeto_id"], name: "index_testes_on_objeto_id"
   end
 
+  create_table "tipoestados", force: :cascade do |t|
+    t.string   "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tipoobjetos", force: :cascade do |t|
     t.string   "descricao"
     t.datetime "created_at", null: false
@@ -94,6 +124,14 @@ ActiveRecord::Schema.define(version: 20171120004907) do
     t.date     "datanasc"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "valparametroes", force: :cascade do |t|
+    t.string   "valor"
+    t.integer  "parametroe_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["parametroe_id"], name: "index_valparametroes_on_parametroe_id"
   end
 
   create_table "valparametros", force: :cascade do |t|

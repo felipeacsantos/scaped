@@ -1,0 +1,27 @@
+<%= form_for(esparam) do |f| %>
+  <% if esparam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(esparam.errors.count, "error") %> prohibited this esparam from being saved:</h2>
+
+      <ul>
+      <% esparam.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipoestado_id %>
+    <%= f.collection_select :tipoestado_id, Tipoestado.all, :id, :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

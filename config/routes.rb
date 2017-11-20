@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :esvalparams
+  resources :esparams
+  resources :valparametroes, as: :valparametroe
+  resources :parametroes, as: :parametroe
+  resources :tipoestados
   resources :criterioestados
   resources :estados
   resources :testes
