@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120000114) do
+ActiveRecord::Schema.define(version: 20171120004907) do
+
+  create_table "criterioestados", force: :cascade do |t|
+    t.integer  "criterio_id"
+    t.integer  "estado_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["criterio_id"], name: "index_criterioestados_on_criterio_id"
+    t.index ["estado_id"], name: "index_criterioestados_on_estado_id"
+  end
 
   create_table "criterios", force: :cascade do |t|
     t.integer  "operador"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "estados", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "versao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

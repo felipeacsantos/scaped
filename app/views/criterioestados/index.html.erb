@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Criterioestados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Criterio</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @criterioestados.each do |criterioestado| %>
+      <tr>
+        <td><%= criterioestado.criterio %></td>
+        <td><%= criterioestado.estado %></td>
+        <td><%= link_to 'Show', criterioestado %></td>
+        <td><%= link_to 'Edit', edit_criterioestado_path(criterioestado) %></td>
+        <td><%= link_to 'Destroy', criterioestado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Criterioestado', new_criterioestado_path %>

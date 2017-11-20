@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :criterioestados
+  resources :estados
   resources :testes
   resources :tipoobjetos
   resources :criterios

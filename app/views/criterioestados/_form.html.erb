@@ -1,0 +1,27 @@
+<%= form_for(criterioestado) do |f| %>
+  <% if criterioestado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(criterioestado.errors.count, "error") %> prohibited this criterioestado from being saved:</h2>
+
+      <ul>
+      <% criterioestado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :criterio_id %>
+    <%= f.text_field :criterio_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado_id %>
+    <%= f.text_field :estado_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
