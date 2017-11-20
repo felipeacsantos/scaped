@@ -83,16 +83,9 @@ ActiveRecord::Schema.define(version: 20171120055303) do
     t.index ["parametro_id"], name: "index_parametrizacaos_on_parametro_id"
   end
 
-  create_table "parametroes", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "tipoestado_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["tipoestado_id"], name: "index_parametroes_on_tipoestado_id"
-  end
-
   create_table "parametros", force: :cascade do |t|
     t.string   "name"
+    t.string   "value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "tipoobjeto"
@@ -133,14 +126,6 @@ ActiveRecord::Schema.define(version: 20171120055303) do
     t.date     "datanasc"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "valparametroes", force: :cascade do |t|
-    t.string   "valor"
-    t.integer  "parametroe_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["parametroe_id"], name: "index_valparametroes_on_parametroe_id"
   end
 
   create_table "valparametros", force: :cascade do |t|
