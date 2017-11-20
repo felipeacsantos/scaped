@@ -1,4 +1,4 @@
-class EstadosController < ApplicationController
+class EstadosController < WorkspaceController
   before_action :set_estado, only: [:show, :edit, :update, :destroy]
 
   # GET /estados

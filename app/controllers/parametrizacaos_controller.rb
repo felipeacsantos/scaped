@@ -1,4 +1,4 @@
-class ParametrizacaosController < ApplicationController
+class ParametrizacaosController < WorkspaceController
   before_action :set_parametrizacao, only: [:show, :edit, :update, :destroy]
 
   # GET /parametrizacaos

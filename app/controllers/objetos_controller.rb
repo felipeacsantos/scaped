@@ -1,4 +1,4 @@
-class ObjetosController < ApplicationController
+class ObjetosController < WorkspaceController
   before_action :set_objeto, only: [:show, :edit, :update, :destroy]
 
   # GET /objetos

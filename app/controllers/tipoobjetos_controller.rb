@@ -1,4 +1,4 @@
-class TipoobjetosController < ApplicationController
+class TipoobjetosController < WorkspaceController
   before_action :set_tipoobjeto, only: [:show, :edit, :update, :destroy]
 
   # GET /tipoobjetos

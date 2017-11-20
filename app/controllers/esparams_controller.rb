@@ -1,4 +1,4 @@
-class EsparamsController < ApplicationController
+class EsparamsController < WorkspaceController
   before_action :set_esparam, only: [:show, :edit, :update, :destroy]
 
   # GET /esparams

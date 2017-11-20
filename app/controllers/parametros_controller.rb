@@ -1,4 +1,4 @@
-class ParametrosController < ApplicationController
+class ParametrosController < WorkspaceController
   before_action :set_parametro, only: [:show, :edit, :update, :destroy]
 
   # GET /parametros

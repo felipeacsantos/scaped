@@ -1,4 +1,4 @@
-class ValparametrosController < ApplicationController
+class ValparametrosController < WorkspaceController
   before_action :set_valparametro, only: [:show, :edit, :update, :destroy]
 
   # GET /valparametros

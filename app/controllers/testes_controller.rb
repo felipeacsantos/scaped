@@ -1,4 +1,4 @@
-class TestesController < ApplicationController
+class TestesController < WorkspaceController
   before_action :set_testis, only: [:show, :edit, :update, :destroy]
 
   # GET /testes

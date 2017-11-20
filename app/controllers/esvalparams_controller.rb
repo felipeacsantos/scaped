@@ -1,4 +1,4 @@
-class EsvalparamsController < ApplicationController
+class EsvalparamsController < WorkspaceController
   before_action :set_esvalparam, only: [:show, :edit, :update, :destroy]
 
   # GET /esvalparams

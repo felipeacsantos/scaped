@@ -1,4 +1,4 @@
-class CriteriosController < ApplicationController
+class CriteriosController < WorkspaceController
   before_action :set_criterio, only: [:show, :edit, :update, :destroy]
 
   # GET /criterios

@@ -1,4 +1,4 @@
-class TipoestadosController < ApplicationController
+class TipoestadosController < WorkspaceController
   before_action :set_tipoestado, only: [:show, :edit, :update, :destroy]
 
   # GET /tipoestados

@@ -1,4 +1,4 @@
-class ObjetovalparametrosController < ApplicationController
+class ObjetovalparametrosController < WorkspaceController
   before_action :set_objetovalparametro, only: [:show, :edit, :update, :destroy]
 
   # GET /objetovalparametros

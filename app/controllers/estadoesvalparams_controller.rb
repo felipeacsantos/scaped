@@ -1,4 +1,4 @@
-class EstadoesvalparamsController < ApplicationController
+class EstadoesvalparamsController < WorkspaceController
   before_action :set_estadoesvalparam, only: [:show, :edit, :update, :destroy]
 
   # GET /estadoesvalparams

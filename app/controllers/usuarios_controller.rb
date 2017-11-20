@@ -1,4 +1,4 @@
-class UsuariosController < ApplicationController
+class UsuariosController < WorkspaceController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios
