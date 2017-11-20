@@ -125,3 +125,22 @@ function addSpecificFields(data){
 
     return fields;
 }
+
+function addSpecificFieldsState(data){
+      var fields = "<div class='control-group nested-fields'><div class='controls'><select class='esparam' disabled='disabled' onchange='myFunction(event)' name='estado[estadoesvalparams_attributes][new_estadoesvalparams][esvalparams][esparam_id]' id='estado_estadoesvalparams_attributes_new_estadoesvalparams_esvalparams_esparam_id'>";
+          fields +=  "<option value='"+data.id+"' selected='selected'>"+data.name+"<\/option>";
+        fields += "<\/select>"
+
+        fields += "<select class='esparam' onchange='myFunction(event)' name='estado[estadoesvalparams_attributes][new_estadoesvalparams][esvalparam_id]' id='estado_estadoesvalparams_attributes_new_estadoesvalparams_esvalparams_esvalparam_id'>";
+        for(i2 = 0; i2 < data.esvalparams.length; i2++){
+          fields += "<option value='"+data.esvalparams[i2].id+"'>"+data.esvalparams[i2].valor+"<\/option>";
+        }
+
+        fields +="<\/select>";
+
+        fields += "<input class='destroy' type='hidden' value='false' name='estado[estadoesvalparams_attributes][new_estadoesvalparams][_destroy]' id='estado_estadoesvalparams_attributes_new_estadoesvalparams__destroy' style='display: inline-block;'>";
+
+        fields += "<a target='_blank' href='/esvalparams/new'>+</a><\/div><\/div>";
+
+    return fields;
+}

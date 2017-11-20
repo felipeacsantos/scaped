@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<div class="fields">
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -23,12 +24,15 @@
 
   <div class="field">
     Tipo
-    <% @sel = f.object.esvalparams.first ? Esparam.find(f.object.esvalparams.first.esparam_id).tipoestado : 0 %>
+    <% @sel = f.object.esvalparams.first ? Esparam.find(f.object.esvalparams.first.esparam_id).tipoestado_id : 0 %>
     <%= f.collection_select :tipoestado, Tipoestado.order(:id), :id, :descricao, {include_blank: true, selected: @sel}, {class: 'esparam', onchange: 'getParamByStateType(event)'} %>
 
   <%= f.fields_for :estadoesvalparams do |builder| %>
     <%= render 'estadoesvalparam_fields', :f => builder %>
   <% end %>
+
+  <p id="addButton"><%#= link_to_add_fields "Add parameters", f, :objetovalparametros %></p>
+</div>
 
   <div class="actions">
     <%= f.submit %>
