@@ -15,6 +15,9 @@ class ValparametrosController < WorkspaceController
   # GET /valparametros/new
   def new
     @valparametro = Valparametro.new
+    if params[:parametro_id]
+      @valparametro.parametro_id = params[:parametro_id]
+    end
   end
 
   # GET /valparametros/1/edit

@@ -15,6 +15,9 @@ class EsvalparamsController < WorkspaceController
   # GET /esvalparams/new
   def new
     @esvalparam = Esvalparam.new
+    if params[:esparam_id]
+      @esvalparam.esparam_id = params[:esparam_id]
+    end
   end
 
   # GET /esvalparams/1/edit

@@ -8,7 +8,11 @@
 
     <%= hidden_field_tag :field_name, '', :id => 'field_backup_' + f.index.to_s %>
 
-      <%= link_to_remove_fields "remove", f, f.index %>
-      <%= link_to '+', new_esvalparam_path, target: :_blank %>
+    <%
+      	@esparam_id = Esvalparam.find(f.object.esvalparam_id).esparam_id.to_s()
+    %>
+
+      <%= link_to_remove_fields "remove", f, f.index %>&nbsp;
+      <%= link_to 'Adicionar', new_esvalparam_path+'?esparam_id='+@esparam_id, target: :_blank %>
   </div>
 </div>

@@ -9,6 +9,10 @@
     <%= hidden_field_tag :field_name, '', :id => 'field_backup_' + f.index.to_s %>
 
       <%= link_to_remove_fields "remove", f, f.index %>
-      <%= link_to '+', new_valparametro_path, target: :_blank %>
+      <%
+      	@parametro_id = Valparametro.find(f.object.valparametro_id).parametro_id.to_s()
+      %>
+      &nbsp;
+      <%= link_to 'Adicionar', new_valparametro_path+'?parametro_id='+@parametro_id, target: :_blank %>
   </div>
 </div>

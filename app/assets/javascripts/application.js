@@ -121,7 +121,7 @@ function addSpecificFields(data){
 
         fields += "<input class='destroy' type='hidden' value='false' name='objeto[objetovalparametros_attributes][new_objetovalparametros][_destroy]' id='objeto_objetovalparametros_attributes_new_objetovalparametros__destroy' style='display: inline-block;'>";
 
-        fields += "<a target='_blank' href='/valparametros/new'>+</a><\/div><\/div>";
+        fields += "&nbsp;<a target='_blank' href='/valparametros/new?parametro_id="+data.id+"'>Adicionar</a><\/div><\/div>";
 
     return fields;
 }
@@ -140,7 +140,7 @@ function addSpecificFieldsState(data){
 
         fields += "<input class='destroy' type='hidden' value='false' name='estado[estadoesvalparams_attributes][new_estadoesvalparams][_destroy]' id='estado_estadoesvalparams_attributes_new_estadoesvalparams__destroy' style='display: inline-block;'>";
 
-        fields += "<a target='_blank' href='/esvalparams/new'>+</a><\/div><\/div>";
+        fields += "&nbsp;<a target='_blank' href='/esvalparams/new?esparam_id="+data.id+"'>Adicionar</a><\/div><\/div>";
 
     return fields;
 }

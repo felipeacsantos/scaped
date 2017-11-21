@@ -33,12 +33,14 @@
 
   <div class="field">
     <%= f.label :objeto_id %>
-    <%= f.collection_select :objeto_id, Objeto.all, :id, :name %>
+    <%= f.collection_select :objeto_id, Objeto.all, :id, :name %> &nbsp;
+    <%= link_to 'Adicionar', new_objeto_path, target: :_blank %>
   </div>
 
   <div class="field">
     <%= f.label :criterio_id %>
-    <%= f.collection_select :criterio_id, Criterio.all, :id, :id %>
+    <%= f.collection_select :criterio_id, Criterio.all, :id, :id %> &nbsp;
+    <%= link_to 'Adicionar', new_criterio_path, target: :_blank %>
   </div>
 
   <div class="actions">
