@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120055303) do
+ActiveRecord::Schema.define(version: 20171122015852) do
 
   create_table "criterioestados", force: :cascade do |t|
     t.integer  "criterio_id"
@@ -83,9 +83,16 @@ ActiveRecord::Schema.define(version: 20171120055303) do
     t.index ["parametro_id"], name: "index_parametrizacaos_on_parametro_id"
   end
 
+  create_table "parametroes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "tipoestado_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["tipoestado_id"], name: "index_parametroes_on_tipoestado_id"
+  end
+
   create_table "parametros", force: :cascade do |t|
     t.string   "name"
-    t.string   "value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "tipoobjeto"
@@ -119,13 +126,28 @@ ActiveRecord::Schema.define(version: 20171120055303) do
   end
 
   create_table "usuarios", force: :cascade do |t|
-    t.string   "primeironome"
-    t.string   "sobrenome"
-    t.string   "email"
-    t.string   "senha"
-    t.date     "datanasc"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_usuarios_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+  end
+
+  create_table "valparametroes", force: :cascade do |t|
+    t.string   "valor"
+    t.integer  "parametroe_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["parametroe_id"], name: "index_valparametroes_on_parametroe_id"
   end
 
   create_table "valparametros", force: :cascade do |t|

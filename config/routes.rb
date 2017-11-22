@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   resources :estadoesvalparams
   resources :esvalparams
   resources :esparams
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
     #get '', :controller => :ParametrosController, :action => 'getByTipoObjeto'
     get 'parametros/to/:id', action: :getByTipoObjeto, controller: 'parametros'
   resources :objetos
-  resources :usuarios
   get 'sessions/index'
   get 'users/new'
   get 'home/index'
