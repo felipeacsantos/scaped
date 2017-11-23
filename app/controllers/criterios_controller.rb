@@ -14,7 +14,7 @@ class CriteriosController < WorkspaceController
 
   # GET /criterios/new
   def new
-    @criterio = Criterio.new
+    @criterio = current_usuario.criterios.new
   end
 
   # GET /criterios/1/edit
@@ -24,7 +24,7 @@ class CriteriosController < WorkspaceController
   # POST /criterios
   # POST /criterios.json
   def create
-    @criterio = Criterio.new(criterio_params)
+    @criterio = current_usuario.criterios.new(criterio_params)
 
     respond_to do |format|
       if @criterio.save

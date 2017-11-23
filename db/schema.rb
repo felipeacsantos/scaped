@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123015444) do
+ActiveRecord::Schema.define(version: 20171123023349) do
 
   create_table "criterioestados", force: :cascade do |t|
     t.integer  "criterio_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20171123015444) do
     t.integer  "operador"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "usuario_id"
   end
 
   create_table "esparams", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171123015444) do
     t.integer  "versao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "usuario_id"
   end
 
   create_table "esvalparams", force: :cascade do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171123015444) do
     t.integer  "esparam_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "usuario_id"
     t.index ["esparam_id"], name: "index_esvalparams_on_esparam_id"
   end
 
@@ -63,6 +66,7 @@ ActiveRecord::Schema.define(version: 20171123015444) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "usuario_id"
   end
 
   create_table "objetovalparametros", force: :cascade do |t|
@@ -109,6 +113,7 @@ ActiveRecord::Schema.define(version: 20171123015444) do
     t.integer  "criterio_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "usuario_id"
     t.index ["criterio_id"], name: "index_testes_on_criterio_id"
     t.index ["objeto_id"], name: "index_testes_on_objeto_id"
   end
@@ -156,6 +161,7 @@ ActiveRecord::Schema.define(version: 20171123015444) do
     t.integer  "parametro_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "usuario_id"
     t.index ["parametro_id"], name: "index_valparametros_on_parametro_id"
   end
 

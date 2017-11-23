@@ -4,4 +4,5 @@ class Teste < ApplicationRecord
 
   belongs_to :objeto
   belongs_to :criterio
+  belongs_to :usuario
 end

@@ -14,7 +14,7 @@ class ValparametrosController < WorkspaceController
 
   # GET /valparametros/new
   def new
-    @valparametro = Valparametro.new
+    @valparametro = current_usuario.valparametros.new
     if params[:parametro_id]
       @valparametro.parametro_id = params[:parametro_id]
     end
@@ -27,7 +27,7 @@ class ValparametrosController < WorkspaceController
   # POST /valparametros
   # POST /valparametros.json
   def create
-    @valparametro = Valparametro.new(valparametro_params)
+    @valparametro = current_usuario.valparametros.new(valparametro_params)
 
     respond_to do |format|
       if @valparametro.save

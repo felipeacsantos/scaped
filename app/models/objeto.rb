@@ -16,5 +16,5 @@ class Objeto < ApplicationRecord
            :reject_if => :all_blank,
            :allow_destroy => true
   accepts_nested_attributes_for :valparametros
-
+  belongs_to :usuario
 end

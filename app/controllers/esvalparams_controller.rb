@@ -14,7 +14,7 @@ class EsvalparamsController < WorkspaceController
 
   # GET /esvalparams/new
   def new
-    @esvalparam = Esvalparam.new
+    @esvalparam = current_usuario.esvalparams.new
     if params[:esparam_id]
       @esvalparam.esparam_id = params[:esparam_id]
     end
@@ -27,7 +27,7 @@ class EsvalparamsController < WorkspaceController
   # POST /esvalparams
   # POST /esvalparams.json
   def create
-    @esvalparam = Esvalparam.new(esvalparam_params)
+    @esvalparam = current_usuario.esvalparams.new(esvalparam_params)
 
     respond_to do |format|
       if @esvalparam.save

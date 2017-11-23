@@ -14,7 +14,7 @@ class ObjetosController < WorkspaceController
 
   # GET /objetos/new
   def new
-    @objeto = Objeto.new
+    @objeto = current_usuario.objetos.new
     #3.times {@objeto.parametros.build}
   end
 
@@ -25,7 +25,7 @@ class ObjetosController < WorkspaceController
   # POST /objetos
   # POST /objetos.json
   def create
-    @objeto = Objeto.new(objeto_params)
+    @objeto = current_usuario.objetos.new(objeto_params)
     #@objeto.objetovalparametros.valparametros = nil
 
     #print @objeto.parametros

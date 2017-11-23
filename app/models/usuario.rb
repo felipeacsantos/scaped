@@ -3,4 +3,11 @@ class Usuario < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :testes
+  has_many :criterios
+  has_many :estados
+  has_many :esvalparams
+  has_many :objetos
+  has_many :valparametros
 end

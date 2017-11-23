@@ -5,7 +5,10 @@ class Ability
     if usuario.admin?
         can :manage, :all
     else
-        can :manage, :all, user_id: usuario.id
+        can [:read, :getByTipoObjeto, :getByTipoEstado], :all
+        can [:create], [Esvalparam, Estadoesvalparam, Estado, Teste, Objeto, Valparametro, Objetovalparametro, Criterio, Criterioestado]
+        can :manage, :all, usuario_id: usuario.id
+        
         #cannot :manage, :usuarios
     end
     # Define abilities for the passed in user here. For example:

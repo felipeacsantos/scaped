@@ -14,7 +14,7 @@ class EstadosController < WorkspaceController
 
   # GET /estados/new
   def new
-    @estado = Estado.new
+    @estado = current_usuario.estados.new
   end
 
   # GET /estados/1/edit
@@ -24,7 +24,7 @@ class EstadosController < WorkspaceController
   # POST /estados
   # POST /estados.json
   def create
-    @estado = Estado.new(estado_params)
+    @estado = current_usuario.estados.new(estado_params)
 
     respond_to do |format|
       if @estado.save

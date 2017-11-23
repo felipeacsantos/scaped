@@ -14,7 +14,7 @@ class TestesController < WorkspaceController
 
   # GET /testes/new
   def new
-    @testis = Teste.new
+    @testis = current_usuario.testes.new
   end
 
   # GET /testes/1/edit
@@ -24,7 +24,7 @@ class TestesController < WorkspaceController
   # POST /testes
   # POST /testes.json
   def create
-    @testis = Teste.new(testis_params)
+    @testis = current_usuario.testes.new(testis_params)
 
     respond_to do |format|
       if @testis.save
