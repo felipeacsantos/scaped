@@ -5,9 +5,11 @@ class Ability
     if usuario.admin?
         can :manage, :all
     else
-        can [:read, :getByTipoObjeto, :getByTipoEstado], :all
-        can [:create], [Esvalparam, Estadoesvalparam, Estado, Teste, Objeto, Valparametro, Objetovalparametro, Criterio, Criterioestado]
         can :manage, :all, usuario_id: usuario.id
+        can [:read, :getByTipoObjeto, :getByTipoEstado], :all
+        cannot :read, [Esparam, Parametro, Usuario]
+        can [:create], [Esvalparam, Estadoesvalparam, Estado, Teste, Objeto, Valparametro, Objetovalparametro, Criterio, Criterioestado]
+        
         
         #cannot :manage, :usuarios
     end
