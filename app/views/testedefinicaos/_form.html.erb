@@ -1,0 +1,49 @@
+<%= form_for(testedefinicao) do |f| %>
+  <% if testedefinicao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(testedefinicao.errors.count, "error") %> prohibited this testedefinicao from being saved:</h2>
+
+      <ul>
+      <% testedefinicao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :versao %>
+    <%= f.number_field :versao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :texto %>
+    <%= f.text_field :texto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :checkvalor %>
+    <%= f.select :checkvalor, Testedefinicao.checkvalors.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :checkexists %>
+    <%= f.select :checkexists, Testedefinicao.checkexists.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objeto_id %>
+    <%= f.collection_select :objeto_id, Objeto.all, :id, :name %> &nbsp;
+    <%= link_to 'Adicionar', new_objeto_path, target: :_blank %>
+  </div>
+
+  <div class="field">
+    <%= f.label :criterio_id %>
+    <%= f.collection_select :criterio_id, Criterio.all, :id, :id %> &nbsp;
+    <%= link_to 'Adicionar', new_criterio_path, target: :_blank %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

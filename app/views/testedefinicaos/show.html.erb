@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Versao:</strong>
+  <%= @testedefinicao.versao %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @testedefinicao.texto %>
+</p>
+
+<p>
+  <strong>Checkvalor:</strong>
+  <%= @testedefinicao.checkvalor %>
+</p>
+
+<p>
+  <strong>Checkexists:</strong>
+  <%= @testedefinicao.checkexists %>
+</p>
+
+<p>
+  <strong>Objeto:</strong>
+  <%= @testedefinicao.objeto %>
+</p>
+
+<p>
+  <strong>Criterio:</strong>
+  <%= @testedefinicao.criterio %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @testedefinicao.usuario_id %>
+</p>
+
+<%= link_to 'Edit', edit_testedefinicao_path(@testedefinicao) %> |
+<%= link_to 'Back', testedefinicaos_path %>

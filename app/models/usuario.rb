@@ -5,6 +5,7 @@ class Usuario < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :testes
+  has_many :testedefinicaos
   has_many :criterios
   has_many :estados
   has_many :esvalparams

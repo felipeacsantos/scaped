@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Testedefinicaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Versao</th>
+      <th>Texto</th>
+      <th>Checkvalor</th>
+      <th>Checkexists</th>
+      <th>Objeto</th>
+      <th>Criterio</th>
+      <th>Usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @testedefinicaos.each do |testedefinicao| %>
+      <tr>
+        <td><%= testedefinicao.versao %></td>
+        <td><%= testedefinicao.texto %></td>
+        <td><%= testedefinicao.checkvalor %></td>
+        <td><%= testedefinicao.checkexists %></td>
+        <td><%= testedefinicao.objeto %></td>
+        <td><%= testedefinicao.criterio %></td>
+        <td><%= testedefinicao.usuario_id %></td>
+        <td><%= link_to 'Show', testedefinicao %></td>
+        <td><%= link_to 'Edit', edit_testedefinicao_path(testedefinicao) %></td>
+        <td><%= link_to 'Destroy', testedefinicao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Testedefinicao', new_testedefinicao_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testedefinicaos
   devise_for :usuarios
   resources :estadoesvalparams
   resources :esvalparams

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  versao: 1
+  texto: MyString
+  checkvalor: 1
+  checkexists: 1
+  objeto: one
+  criterio: one
+  usuario_id: 1
+
+two:
+  versao: 1
+  texto: MyString
+  checkvalor: 1
+  checkexists: 1
+  objeto: two
+  criterio: two
+  usuario_id: 1
