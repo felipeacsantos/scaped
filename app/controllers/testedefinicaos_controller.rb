@@ -56,13 +56,13 @@ class TestedefinicaosController < WorkspaceController
             end
             Parametro.all.each do |valor|
               if valor.id == param_id
-                tipo = valor.tipoobjeto.descricao.split('_')[0]
+                tipo = Tipoobjeto.find(valor.tipoobjeto).descricao.split('_')[0]
               end
             end
             xml.send("#{tipo}_test").test('check' => definicao.checkvalor, 'check_existence' => definicao.checkexists, 'comment' => '..', 'id' => "oval:com.scaped:tst:#{definicao.criterio.id.to_s}", 'version' => definicao.versao) do
               xml.object_('object_ref' => "oval:com.scaped:obj:#{definicao.objeto.id.to_s}")
               Criterioestado.all.each do |estado|
-                if estado.criterio.id == definicao.criterio.id then
+                if estado.criterio_id == definicao.criterio_id then
                   xml.state_('state_ref' =>  "oval:com.scaped:ste:#{estado.estado.id.to_s}")
                 end
               end
@@ -74,7 +74,7 @@ class TestedefinicaosController < WorkspaceController
             xml.send("#{tipo}_object").test('id' => "oval:com.scaped:obj:#{objeto.id}", 'version' => '1') do
               Objetovalparametro.all.each do |valor|
                 if objeto.id == valor.objeto.id then
-                  xml.method_missing(valor.valparametro.parametro.name, valor.valparametro.valor) 
+                  xml.method_missing(valor.valparametro.parametro.name.gsub(' ','_'), valor.valparametro.valor) 
                 end
               end
             end
@@ -85,7 +85,7 @@ class TestedefinicaosController < WorkspaceController
             xml.send("#{tipo}_state").test('id' => "oval:com.scaped:ste:#{estado.id}", 'version' => '1') do
               Estadoesvalparam.all.each do |valor|
                 if estado.id == valor.estado.id then
-                  xml.method_missing(valor.esvalparam.esparam.name, valor.esvalparam.valor) 
+                  xml.method_missing(valor.esvalparam.esparam.name.gsub(' ','_'), valor.esvalparam.valor) 
                 end
               end
             end
