@@ -69,6 +69,6 @@ class CriteriosController < WorkspaceController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def criterio_params
-      params.require(:criterio).permit(:operador)
+      params.require(:criterio).permit(:operador, :criterioestados_attributes => [:id, :estado_id, :_destroy])
     end
 end

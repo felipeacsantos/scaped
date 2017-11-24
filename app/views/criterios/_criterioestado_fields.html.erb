@@ -1,0 +1,12 @@
+<div class="control-group nested-fields">
+  <div class="controls">
+    <%= f.collection_select :estado_id, Estado.order(:name), :id, :name, {include_blank: true} %>
+
+
+    <%= hidden_field_tag :field_name, '', :id => 'field_backup_' + f.index.to_s %>
+
+      <%= link_to_remove_fields2 "Remover", f, f.index %>
+      &nbsp;
+      <%= link_to 'Adicionar', new_estado_path, target: :_blank %>
+  </div>
+</div>

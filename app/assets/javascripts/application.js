@@ -35,10 +35,19 @@ function remove_fields(link) {
   $("#objeto_objetovalparametros_attributes_"+link+"__destroy").val("1");
   $("#objeto_objetovalparametros_attributes_"+link+"__destroy").closest(".nested-fields").hide();
 }
+function remove_fields2(link) {
+  //console.log("#objeto_parametros_attributes_"+link+"__destroy");
+  $("#criterio_criterioestados_attributes_"+link+"__destroy").val("1");
+  $("#criterio_criterioestados_attributes_"+link+"__destroy").closest(".nested-fields").hide();
+}
 
 function remove_all_fields() {
   $('.destroy').val("1")
   $('.destroy').closest(".nested-fields").hide();
+}
+
+function add_fields2(link, association, content) {
+  add_fields(link, association, content, 0);  
 }
 
 function add_fields(link, association, content, line) {
@@ -141,6 +150,19 @@ function addSpecificFieldsState(data){
         fields += "<input class='destroy' type='hidden' value='false' name='estado[estadoesvalparams_attributes][new_estadoesvalparams][_destroy]' id='estado_estadoesvalparams_attributes_new_estadoesvalparams__destroy' style='display: inline-block;'>";
 
         fields += "&nbsp;<a target='_blank' href='/esvalparams/new?esparam_id="+data.id+"'>Adicionar</a><\/div><\/div>";
+
+    return fields;
+}
+
+
+function addSpecificFieldsCriterioEstado(data){
+      var fields = "<div class='control-group nested-fields'><div class='controls'><select class='parametro' name='criterio[criterioestados_attributes][new_criterioestados][estado_id]' id='criterio_criterioestados_attributes_new_criterioestados_estados_estado_id'>";
+          fields +=  "<option value='"+data.id+"' selected='selected'>"+data.name+"<\/option>";
+        fields += "<\/select>"
+
+        fields += "<input class='destroy' type='hidden' value='false' name='criterio[criterioestados_attributes][new_criterioestados][_destroy]' id='criterio_criterioestados_attributes_new_criterioestados__destroy' style='display: inline-block;'>";
+
+        fields += "&nbsp;<a target='_blank' href='/estados/new'>Adicionar</a><\/div><\/div>";
 
     return fields;
 }

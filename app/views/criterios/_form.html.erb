@@ -11,11 +11,18 @@
     </div>
   <% end %>
 
+  <div class="fields">
   <div class="field">
     <%= f.label :operador %>
     <%= f.select :operador, Criterio.operadors.keys %>
   </div>
 
+  <%= f.fields_for :criterioestados do |builder| %>
+    <%= render 'criterioestado_fields', :f => builder %>
+  <% end %>
+
+    <p id="addButton"><%= link_to_add_fields2 "Add parameters", f, :criterioestados %></p>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
