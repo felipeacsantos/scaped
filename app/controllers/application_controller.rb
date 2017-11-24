@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
 	def signed_in_root_path(resource)
-		testes_path
+		testedefinicaos_path
 	end
 end
