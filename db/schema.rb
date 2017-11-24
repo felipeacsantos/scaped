@@ -87,14 +87,6 @@ ActiveRecord::Schema.define(version: 20171124015442) do
     t.index ["parametro_id"], name: "index_parametrizacaos_on_parametro_id"
   end
 
-  create_table "parametroes", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "tipoestado_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["tipoestado_id"], name: "index_parametroes_on_tipoestado_id"
-  end
-
   create_table "parametros", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",    null: false
@@ -160,14 +152,6 @@ ActiveRecord::Schema.define(version: 20171124015442) do
     t.boolean  "admin"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
-  end
-
-  create_table "valparametroes", force: :cascade do |t|
-    t.string   "valor"
-    t.integer  "parametroe_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["parametroe_id"], name: "index_valparametroes_on_parametroe_id"
   end
 
   create_table "valparametros", force: :cascade do |t|

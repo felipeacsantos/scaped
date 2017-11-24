@@ -38,9 +38,6 @@
                <li class="sidebar-brand" style="text-indent: 0px;height: inherit;">
                    <%= image_tag "scaped-logo.jpg", style: "width: 100%;text-align: center;" %>
                </li>
-               <li>
-                   <a href="#">Busca</a>
-               </li>
            </ul>
        </div>
        <!-- /#sidebar-wrapper -->
@@ -50,10 +47,9 @@
            <div class="container-fluid px-4">
                <div class="row">
                  <div class="col-3 text-center py-3">
-                   Sobre
+                  <%= button_to "Gerar XML", :action => "create_file", :controller => "testedefinicaos"%>
                  </div>
                  <div class="col-3 text-center py-3">
-                   Menu 2
                  </div>
                  <% if !usuario_signed_in? %>
                    <div class="col-3 text-center py-3">

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :esvalparams
   resources :esparams
     get 'esparams/to/:id', action: :getByTipoEstado, controller: 'esparams'
+    post 'testedefinicaos/index', action: :create_file, controller: 'testedefinicaos'
   resources :valparametroes, as: :valparametroe
   resources :parametroes, as: :parametroe
   resources :tipoestados
