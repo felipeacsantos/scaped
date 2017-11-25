@@ -86,6 +86,8 @@ function original_url(){
   var protocol = location.protocol;
   var slashes = protocol.concat("//");
   var host = slashes.concat(window.location.hostname);
+
+  return host;
 }
 
 function getParamByObjectType(event){
