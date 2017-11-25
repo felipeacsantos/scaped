@@ -82,10 +82,16 @@ function myFunction(event){
     }
 }
 
+function original_url(){
+  var protocol = location.protocol;
+  var slashes = protocol.concat("//");
+  var host = slashes.concat(window.location.hostname);
+}
+
 function getParamByObjectType(event){
   var fields_string = "";
   $.ajax({
-    url: "http://localhost:3000/parametros/to/"+event.target.selectedIndex+".json",
+    url: original_url()+"/parametros/to/"+event.target.selectedIndex+".json",
     success: function(data){
       remove_all_fields();
       for(i = 0; i < data.length; i++){
@@ -102,7 +108,7 @@ function getParamByObjectType(event){
 function getParamByStateType(event){
   var fields_string = "";
   $.ajax({
-    url: "http://localhost:3000/esparams/to/"+event.target.selectedIndex+".json",
+    url: original_url()+"/esparams/to/"+event.target.selectedIndex+".json",
     success: function(data){
       remove_all_fields();
       for(i = 0; i < data.length; i++){
