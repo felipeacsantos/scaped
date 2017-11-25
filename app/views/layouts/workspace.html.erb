@@ -38,6 +38,35 @@
                <li class="sidebar-brand" style="text-indent: 0px;height: inherit;">
                    <%= image_tag "scaped-logo.jpg", style: "width: 100%;text-align: center;" %>
                </li>
+               <li>
+                  <a href="/testedefinicaos/">Testes</a>
+               </li>
+               <li>
+                  <a href="/objetos/">Objetos</a>
+               </li>
+               <li>
+                  <a href="/estados/">Estados</a>
+               </li>
+               <li>
+                  <a href="/valparametros/">Parametros de Objeto</a>
+               </li>
+               <li>
+                  <a href="/esvalparams/">Parametros de Estado</a>
+               </li>
+               <% if current_usuario.admin? %>
+                  <li>
+                    <a href="/parametros/">Tipos de Parametros de Objeto</a>
+                  </li>
+                  <li>
+                    <a href="/esparams/">Tipos de Parametros de Objeto</a>
+                  </li>
+                  <li>
+                    <a href="/tipoobjetos/">Tipos de Objeto</a>
+                  </li>
+                  <li>
+                    <a href="/tipoestados/">Tipos de Estado</a>
+                  </li>
+               <% end %>
            </ul>
        </div>
        <!-- /#sidebar-wrapper -->
