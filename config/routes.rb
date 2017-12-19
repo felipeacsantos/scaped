@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :testedefinicaos
+    get 'testedefinicaos/xml/:id', action: :create_file, controller: 'testedefinicaos', as: 'xml'
   devise_for :usuarios
   resources :estadoesvalparams
   resources :esvalparams

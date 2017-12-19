@@ -12,7 +12,7 @@
       <th>Objeto</th>
       <th>Criterio</th>
       <th>Usuario</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -29,6 +29,7 @@
         <td><%= link_to 'Show', testedefinicao %></td>
         <td><%= link_to 'Edit', edit_testedefinicao_path(testedefinicao) %></td>
         <td><%= link_to 'Destroy', testedefinicao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Gerar XML", xml_path(testedefinicao) %>
       </tr>
     <% end %>
   </tbody>

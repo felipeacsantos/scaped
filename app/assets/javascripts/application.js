@@ -87,6 +87,10 @@ function original_url(){
   var slashes = protocol.concat("//");
   var host = slashes.concat(window.location.hostname);
 
+  if((location.protocol == 'http:' && window.location.port != '80')||(location.protocol == 'https:' && window.location.port != '443')){
+    host += ":"+window.location.port;
+  }
+
   return host;
 }
 

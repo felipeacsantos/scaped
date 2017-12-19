@@ -28,7 +28,7 @@ class TestedefinicaosController < WorkspaceController
           xml['oval'].timestamp Time.now.to_s
         end
         xml.definitions do
-          Testedefinicao.all.each do |definicao|
+          Testedefinicao.find(params[:id]) do |definicao|
             xml.definition('id' => "oval:com.scaped:def:#{definicao.id.to_s}", 'version' => definicao.versao.to_s == '' ? '1' : definicao.versao.to_s, 'class' => 'compliance') do
               xml.metadata do
                 xml.title_ definicao.texto.to_s
@@ -43,7 +43,7 @@ class TestedefinicaosController < WorkspaceController
           end
         end
         xml.tests do
-          Testedefinicao.all.each do |definicao|
+          Testedefinicao.find(params[:id]) do |definicao|
             Objetovalparametro.all.each do |valor|
               if definicao.objeto.id == valor.objeto.id then
                 param_id = valor.valparametro.id
@@ -70,23 +70,19 @@ class TestedefinicaosController < WorkspaceController
           end
         end
         xml.objects do
-          Objeto.all.each do |objeto|
+          Testedefinicao.find(params[:id]).objeto do |objeto|
             xml.send("#{tipo}_object").test('id' => "oval:com.scaped:obj:#{objeto.id}", 'version' => '1') do
-              Objetovalparametro.all.each do |valor|
-                if objeto.id == valor.objeto.id then
+              Objetovalparametro.where(objeto_id: objeto.id).each do |valor|
                   xml.method_missing(valor.valparametro.parametro.name.gsub(' ','_'), valor.valparametro.valor) 
-                end
               end
             end
           end
         end
         xml.states do
-          Estado.all.each do |estado|
+          Testedefinicao.find(params[:id]).criterio.estados.all.each do |estado|
             xml.send("#{tipo}_state").test('id' => "oval:com.scaped:ste:#{estado.id}", 'version' => '1') do
-              Estadoesvalparam.all.each do |valor|
-                if estado.id == valor.estado.id then
+              Estadoesvalparam.where(estado_id: estado.id).each do |valor|
                   xml.method_missing(valor.esvalparam.esparam.name.gsub(' ','_'), valor.esvalparam.valor) 
-                end
               end
             end
           end
