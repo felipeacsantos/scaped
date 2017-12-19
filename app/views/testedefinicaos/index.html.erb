@@ -26,10 +26,18 @@
         <td><%= testedefinicao.objeto %></td>
         <td><%= testedefinicao.criterio %></td>
         <td><%= testedefinicao.usuario_id %></td>
-        <td><%= link_to 'Show', testedefinicao %></td>
-        <td><%= link_to 'Edit', edit_testedefinicao_path(testedefinicao) %></td>
-        <td><%= link_to 'Destroy', testedefinicao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "Gerar XML", xml_path(testedefinicao) %>
+        <% if can? :read, testedefinicao %>
+          <td><%= link_to 'Show', testedefinicao %></td>
+        <% end %>
+        <% if can? :update, testedefinicao %>
+          <td><%= link_to 'Edit', edit_testedefinicao_path(testedefinicao) %></td>
+        <% end %>
+        <% if can? :destroy, testedefinicao %>
+          <td><%= link_to 'Destroy', testedefinicao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% if can? :create_file, testedefinicao %>
+          <td><%= link_to "Gerar XML", xml_path(testedefinicao) %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

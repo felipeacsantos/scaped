@@ -14,9 +14,15 @@
     <% @criterios.each do |criterio| %>
       <tr>
         <td><%= criterio.operador %></td>
-        <td><%= link_to 'Show', criterio %></td>
-        <td><%= link_to 'Edit', edit_criterio_path(criterio) %></td>
-        <td><%= link_to 'Destroy', criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :read, criterio %>
+          <td><%= link_to 'Show', criterio %></td>
+        <% end %>
+        <% if can? :updade, criterio %>
+          <td><%= link_to 'Edit', edit_criterio_path(criterio) %></td>
+        <% end %>
+        <% if can? :destroy, criterio %>
+          <td><%= link_to 'Destroy', criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

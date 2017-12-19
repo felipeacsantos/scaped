@@ -16,9 +16,15 @@
       <tr>
         <td><%= valparametro.valor %></td>
         <td><%= valparametro.parametro %></td>
-        <td><%= link_to 'Show', valparametro %></td>
-        <td><%= link_to 'Edit', edit_valparametro_path(valparametro) %></td>
-        <td><%= link_to 'Destroy', valparametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :read, valparametro %>
+          <td><%= link_to 'Show', valparametro %></td>
+        <% end %>
+        <% if can? :updade, valparametro %>
+          <td><%= link_to 'Edit', edit_valparametro_path(valparametro) %></td>
+        <% end %>
+        <% if can? :destroy, valparametro %>
+          <td><%= link_to 'Destroy', valparametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

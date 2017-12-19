@@ -14,9 +14,15 @@
     <% @objetos.each do |objeto| %>
       <tr>
         <td><%= objeto.name %></td>
-        <td><%= link_to 'Show', objeto %></td>
-        <td><%= link_to 'Edit', edit_objeto_path(objeto) %></td>
-        <td><%= link_to 'Destroy', objeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :read, objeto %>
+          <td><%= link_to 'Show', objeto %></td>
+        <% end %>
+        <% if can? :updade, objeto %>
+          <td><%= link_to 'Edit', edit_objeto_path(objeto) %></td>
+        <% end %>
+        <% if can? :destroy, objeto %>
+          <td><%= link_to 'Destroy', objeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
