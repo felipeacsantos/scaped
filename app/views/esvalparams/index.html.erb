@@ -17,13 +17,13 @@
         <td><%= esvalparam.valor %></td>
         <td><%= esvalparam.esparam %></td>
         <% if can? :read, esvalparam %>
-          <td><%= link_to 'Show', esvalparam %></td>
+          <td><%= link_to 'Exibir', esvalparam %></td>
         <% end %>
         <% if can? :update, esvalparam %>
-          <td><%= link_to 'Edit', edit_esvalparam_path(esvalparam) %></td>
+          <td><%= link_to 'Editar', edit_esvalparam_path(esvalparam) %></td>
         <% end %>
         <% if can? :destroy, esvalparam %>
-          <td><%= link_to 'Destroy', esvalparam, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <td><%= link_to 'Remover', esvalparam, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
         </td>
       </tr>

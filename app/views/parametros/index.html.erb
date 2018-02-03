@@ -14,9 +14,9 @@
     <% @parametros.each do |parametro| %>
       <tr>
         <td><%= parametro.name %></td>
-        <td><%= link_to 'Show', parametro %></td>
-        <td><%= link_to 'Edit', edit_parametro_path(parametro) %></td>
-        <td><%= link_to 'Destroy', parametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', parametro %></td>
+        <td><%= link_to 'Editar', edit_parametro_path(parametro) %></td>
+        <td><%= link_to 'Remover', parametro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

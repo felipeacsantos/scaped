@@ -17,13 +17,13 @@
         <td><%= estado.name %></td>
         <td><%= estado.versao %></td>
         <% if can? :read, estado %>
-          <td><%= link_to 'Show', estado %></td>
+          <td><%= link_to 'Exibir', estado %></td>
         <% end %>
         <% if can? :update, estado %>
-          <td><%= link_to 'Edit', edit_estado_path(estado) %></td>
+          <td><%= link_to 'Editar', edit_estado_path(estado) %></td>
         <% end %>
         <% if can? :destroy, estado %>
-          <td><%= link_to 'Destroy', estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Remover', estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

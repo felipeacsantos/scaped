@@ -14,9 +14,9 @@
     <% @tipoestados.each do |tipoestado| %>
       <tr>
         <td><%= tipoestado.descricao %></td>
-        <td><%= link_to 'Show', tipoestado %></td>
-        <td><%= link_to 'Edit', edit_tipoestado_path(tipoestado) %></td>
-        <td><%= link_to 'Destroy', tipoestado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', tipoestado %></td>
+        <td><%= link_to 'Editar', edit_tipoestado_path(tipoestado) %></td>
+        <td><%= link_to 'Remover', tipoestado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

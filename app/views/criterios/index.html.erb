@@ -15,13 +15,13 @@
       <tr>
         <td><%= criterio.operador %></td>
         <% if can? :read, criterio %>
-          <td><%= link_to 'Show', criterio %></td>
+          <td><%= link_to 'Exibir', criterio %></td>
         <% end %>
         <% if can? :updade, criterio %>
-          <td><%= link_to 'Edit', edit_criterio_path(criterio) %></td>
+          <td><%= link_to 'Editar', edit_criterio_path(criterio) %></td>
         <% end %>
         <% if can? :destroy, criterio %>
-          <td><%= link_to 'Destroy', criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Remover', criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

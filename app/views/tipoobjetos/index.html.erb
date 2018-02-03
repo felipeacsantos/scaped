@@ -14,9 +14,9 @@
     <% @tipoobjetos.each do |tipoobjeto| %>
       <tr>
         <td><%= tipoobjeto.descricao %></td>
-        <td><%= link_to 'Show', tipoobjeto %></td>
-        <td><%= link_to 'Edit', edit_tipoobjeto_path(tipoobjeto) %></td>
-        <td><%= link_to 'Destroy', tipoobjeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', tipoobjeto %></td>
+        <td><%= link_to 'Editar', edit_tipoobjeto_path(tipoobjeto) %></td>
+        <td><%= link_to 'Remover', tipoobjeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -15,13 +15,13 @@
       <tr>
         <td><%= objeto.name %></td>
         <% if can? :read, objeto %>
-          <td><%= link_to 'Show', objeto %></td>
+          <td><%= link_to 'Exibir', objeto %></td>
         <% end %>
         <% if can? :updade, objeto %>
-          <td><%= link_to 'Edit', edit_objeto_path(objeto) %></td>
+          <td><%= link_to 'Editar', edit_objeto_path(objeto) %></td>
         <% end %>
         <% if can? :destroy, objeto %>
-          <td><%= link_to 'Destroy', objeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Remover', objeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
