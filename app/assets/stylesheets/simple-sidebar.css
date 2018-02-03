@@ -120,3 +120,12 @@ body {
     margin-right: 0;
   }
 }
+
+.top-menu-bar {
+  background: rgb(24, 188, 156);
+  margin: 0 -1.5rem;
+}
+
+.top-menu-bar a {
+  color: #FFFFFF
+}
